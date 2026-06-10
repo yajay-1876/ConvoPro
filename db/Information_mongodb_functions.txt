@@ -1,0 +1,38 @@
+For the **Convopro project**, these are all the MongoDB/PyMongo things used:
+
+| Item                     | Single-line explanation                                                                |
+| ------------------------ | -------------------------------------------------------------------------------------- |
+| `MongoClient()`          | Creates a connection to the MongoDB server.                                            |
+| `_client["db_name"]`     | Selects the database to work with.                                                     |
+| `_db["collection_name"]` | Selects a collection from the database.                                                |
+| `get_collection()`       | Helper function created by your instructor to return a collection object.              |
+| `create_index()`         | Creates an index on `last_interacted` for faster sorting.                              |
+| `insert_one()`           | Inserts a new conversation document into the collection.                               |
+| `update_one()`           | Updates an existing conversation document.                                             |
+| `find_one_and_update()`  | Retrieves a conversation and updates its `last_interacted` timestamp in one operation. |
+| `find()`                 | Retrieves multiple conversation documents.                                             |
+| `sort()`                 | Orders conversations by `last_interacted`.                                             |
+| `DESCENDING`             | Sort direction used to show most recent conversations first.                           |
+| `$push`                  | Appends a new message to the `messages` array inside a conversation document.          |
+| `$set`                   | Updates a field value such as `last_interacted`.                                       |
+| `matched_count`          | Checks whether `update_one()` found a matching conversation document.                  |
+
+### MongoDB Data Types Used
+
+| Item              | How used                                             |
+| ----------------- | ---------------------------------------------------- |
+| Document          | One complete conversation.                           |
+| Collection        | `conversations` collection storing all chats.        |
+| Database          | `convopro` database.                                 |
+| Array             | `messages` field stores a list of messages.          |
+| Embedded Document | Each message inside `messages` is a nested document. |
+
+### PyMongo Objects Returned
+
+| Item           | How used                                                 |
+| -------------- | -------------------------------------------------------- |
+| `Collection`   | Returned by `get_collection("conversations")`.           |
+| `UpdateResult` | Returned by `update_one()` and used for `matched_count`. |
+| `Cursor`       | Returned by `find()` and used for iteration and sorting. |
+
+That's literally the complete MongoDB/PyMongo surface area used in the Convopro project. If you master these 16-18 items, you'll understand 100% of the database code in this project.

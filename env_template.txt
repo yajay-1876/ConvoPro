@@ -1,0 +1,4 @@
+MONGO_DB_URL="mongodb://localhost:27017"
+MONGO_DB_NAME="chat_data"
+OLLAMA_URL="http://localhost:11434"
+CONVOPRO_OLLAMA_MODELS="gemma3:1b,mistral:latest,phi3:latest"

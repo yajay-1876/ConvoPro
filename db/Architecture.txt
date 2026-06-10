@@ -1,0 +1,37 @@
+1 Database
+    ↓
+1 Collection (conversations)
+    ↓
+Many Documents
+    ↓
+Each Document = One Conversation
+    ↓
+Messages stored inside that document
+
+-=====================================================================================
+
+
+
+| PostgreSQL   | Convopro MongoDB                 |
+| ------------ | -------------------------------- |
+| Database     | Database (`convopro`)            |
+| Table        | Collection (`conversations`)     |
+| Row          | Document (one chat)              |
+| Message rows | Embedded inside `messages` array |
+
+=======================================================================================
+
+{
+  "_id": "conv1",
+  "title": "Python Basics",
+  "messages": [
+    {
+      "role": "user",
+      "content": "What is Python?"
+    },
+    {
+      "role": "assistant",
+      "content": "Python is..."
+    }
+  ]
+}
