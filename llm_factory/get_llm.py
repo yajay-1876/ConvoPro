@@ -13,7 +13,7 @@ def get_ollama_llm(model_name: str):
     global _current_model_name, _current_llm_instance
     if _current_model_name==model_name and _current_llm_instance is not None:
         return _current_llm_instance
-    llm=Ollama(model=model_name, base_url=OLLAMA_URL, context_window=4096)
+    llm=Ollama(model=model_name, base_url=OLLAMA_URL, context_window=4096, request_timeout=300.0)
     _current_llm_instance=llm
     _current_model_name=model_name
     return llm

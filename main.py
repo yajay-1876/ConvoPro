@@ -64,7 +64,8 @@ if user_query:
     if st.session_state.conversation_id is None:
         try:
             title= get_chat_title(selected_model, user_query) or "New Chat"
-        except Exception :
+        except Exception as e:
+            st.error(f"Error in generating title:{e}")
             title="New Chat"
         conv_id=create_new_conversation(title=title,role="user", content=user_query)
         st.session_state.conversation_id=conv_id
